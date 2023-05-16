@@ -1,0 +1,18 @@
+#!/usr/bin/env nu
+
+def main [...targets: path] {
+	mut contains_errors = false
+	for file in $targets {
+		let result = (ast (open -r $file)).error
+		if $result != 'None' {
+			print $"Found syntax error in \"($file)\":\n($result)"  # "
+			$contains_errors = true
+		} else {
+			print $"checked: ($file)"
+		}
+	}
+
+	if $contains_errors { exit 1 }
+}
+
+# vim: ft=nu

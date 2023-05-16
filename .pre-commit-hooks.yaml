@@ -1,0 +1,6 @@
+- id: check-nu-ast
+  name: Check nu file ast
+  description: Check nu and nuon files using abstract-tree-syntax
+  entry: check-ast
+  language: script
+  files: '.*\.nu(on)?$'
